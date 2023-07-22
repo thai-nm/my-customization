@@ -1,3 +1,5 @@
+set -U fish_color_command white
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
