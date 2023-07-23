@@ -28,6 +28,6 @@ alias gst="git status"
 alias gcm="git commit -m"
 alias gadd="git add"
 alias wplace="cd $HOME/workplace"
-alias bi="cd $HOME/workplace/bi"
+alias bi="cd $HOME/workplace/brightinsight"
 alias psn="cd $HOME/workplace/personal"
 
