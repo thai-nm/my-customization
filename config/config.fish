@@ -27,7 +27,7 @@ end
 alias gst="git status"
 alias gcm="git commit -m"
 alias gadd="git add"
-alias wplace="cd /home/thainm/workplace"
-alias bi="cd /home/thainm/workplace/bi"
-alias psn="cd /home/thainm/workplace/personal"
+alias wplace="cd $HOME/workplace"
+alias bi="cd $HOME/workplace/bi"
+alias psn="cd $HOME/workplace/personal"
 
