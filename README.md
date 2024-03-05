@@ -8,3 +8,5 @@ The following tools are essential for my daily usage:
 - gcloud
 - fish shell
 - kubectl
+- ibus-bamboo
+- 
