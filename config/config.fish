@@ -24,8 +24,26 @@ function fish_prompt
     set_color normal
 end
 
+# Git alias
 alias gst="git status"
 alias gcm="git commit -m"
 alias gadd="git add"
+
+# Kubernetes
+alias k="kubectl"
+alias kn="k config set-context --current --namespace"
+alias kg="k get"
+alias kgp="k get pod"
+alias kgpn="k get pod -n"
+alias kdp="k describe pod"
+alias kdpn="k describe pod -n"
+alias kgsvc="k get service"
+alias kgsvcn="k get service -n"
+alias kgd="k get deployment"
+alias kgdn="k get deployment -n"
+
+# Workplace
 alias wplace="cd $HOME/workplace"
+alias bi="cd $HOME/workplace/brightinsight"
 alias psn="cd $HOME/workplace/personal"
+alias zp="cd $HOME/workplace/zuellig-pharma"
