@@ -1,12 +1,12 @@
-# My custom Linux
-Contains every customized Linux items of me.
+# My Customization
+Contains essential customizations for my workstation.
 
 ## Development tools
 The following tools are essential for my daily usage:
-- google-chrome
-- vscode
-- gcloud
-- fish shell
-- kubectl
-- ibus-bamboo
-- 
+- `google-chrome`
+- `ibus-bamboo`
+- `vscode`/`cursor`
+- `gcloud`/`az cli`
+- `fish`/`zsh` with `oh-my-zsh`
+- `kubectl`
+- `terraform`
