@@ -1,3 +1,6 @@
+autoload -Uz compinit
+compinit
+
 NEWLINE=$'\n'
 PROMPT="%F{#fbfaa2}${ZSH_NAME}${ZSH_VERSION}%f%b %~ ${NEWLINE}$ "
 
@@ -16,12 +19,14 @@ plugins=(
     # zsh-syntax-highlighting
 )
 
+# Manage PATHs
+# path+=('/some/path')
+# export PATH
+
+DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 # Misc
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias bat="batcat"
 alias ll="ls -la"
 
 # Git alias
@@ -34,14 +39,14 @@ alias k="kubectl"
 alias kn="k config set-context --current --namespace"
 alias kg="k get"
 alias kgp="k get pod"
-alias kgpn="k get pod -n"
+alias kd="k describe"
 alias kdp="k describe pod"
-alias kdpn="k describe pod -n"
-alias kgsvc="k get service"
-alias kgsvcn="k get service -n"
-alias kgd="k get deployment"
-alias kgdn="k get deployment -n"
 
 # Workplace
 alias wplace="cd $HOME/workplace"
 alias psn="cd $HOME/workplace/personal"
+alias pstudios="cd $HOME/workplace/playstudios"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+source <(kubectl completion zsh)
