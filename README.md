@@ -5,8 +5,10 @@ Contains essential customizations for my workstation.
 The following tools are essential for my daily usage:
 - `google-chrome`
 - `ibus-bamboo`
-- `vscode`/`cursor`
-- `gcloud`/`az cli`
-- `fish`/`zsh` with `oh-my-zsh`
+- `gcloud`
+- `az cli`
 - `kubectl`
 - `terraform`
+- `vscode` or `cursor`
+- `podman` or `docker`
+- `fish` or `zsh` with `oh-my-zsh`

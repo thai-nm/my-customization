@@ -1,0 +1,9 @@
+[user]
+    name = Thai Nguyen
+    email = thainm.uet@gmail.com
+
+[includeIf "gitdir:/workplace/personal/"]
+    path = ~/workplace/personal/.gitconfig
+
+[includeIf "gitdir:/workplace/company/"]
+    path = ~/workplace/company/.gitconfig
