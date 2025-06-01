@@ -7,8 +7,10 @@ The following tools are essential for my daily usage:
 - `ibus-bamboo`
 - `gcloud`
 - `az cli`
+- `lens`
 - `kubectl`
 - `terraform`
 - `vscode` or `cursor`
 - `podman` or `docker`
 - `fish` or `zsh` with `oh-my-zsh`
+- [llm](https://github.com/simonw/llm)
