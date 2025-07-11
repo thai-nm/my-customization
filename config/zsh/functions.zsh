@@ -1,44 +1,25 @@
-autoload -Uz compinit
-compinit
-
-NEWLINE=$'\n'
-PROMPT="%F{#fbfaa2}${ZSH_NAME}${ZSH_VERSION}%f%b %~ ${NEWLINE}$ "
-
-# Path to Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-
-plugins=(
-    git
-    zsh-autosuggestions
-    # zsh-syntax-highlighting
-)
-
-# = Manage PATHs ===============================================================
-# export PATH="/path/to/dir1:/path/to/dir2:$PATH"
-
 # = Custom Functions ===========================================================
 
 # -----------------------------------------------------------------------------
-# AI-powered Git Commit Function
+# gcmai - AI-powered Git Commit Function
+#
+# Required CLI tool: llm - https://llm.datasette.io/en/stable/
+#
 # 1) gets the current staged changed diff
 # 2) sends them to an LLM to write the git commit message
 # 3) allows you to easily accept, edit, regenerate, cancel
-# the `llm` CLI util is awesome, can get it here: https://llm.datasette.io/en/stable/
 
 gcmai() {
     # Function to generate commit message
     generate_commit_message() {
         git diff --cached | llm "
-Below is a diff of all staged changes, coming from the command:
+      Below is a diff of all staged changes, coming from the command:
 
-\`\`\`
-git diff --cached
-\`\`\`
+      \`\`\`
+      git diff --cached
+      \`\`\`
 
-Please generate a concise, one-line commit message for these changes."
+      Please generate a concise, one-line commit message for these changes."
     }
 
     # Function to read user input compatibly with both Bash and Zsh
@@ -97,32 +78,3 @@ Please generate a concise, one-line commit message for these changes."
         esac
     done
 }
-
-export DISABLE_AUTO_UPDATE="true"
-export HOMEBREW_NO_AUTO_UPDATE=1
-source $ZSH/oh-my-zsh.sh
-
-# = Alias ======================================================================
-
-# Misc
-alias ll="ls -la"
-
-# Git
-alias gst="git status"
-alias gcm="git commit -m"
-alias gadd="git add"
-
-# Kubernetes
-alias k="kubectl"
-alias kn="k config set-context --current --namespace"
-alias kg="k get"
-alias kgp="k get pod"
-alias kd="k describe"
-alias kdp="k describe pod"
-
-# Workplace
-alias wplace="cd $HOME/workplace"
-alias psn="cd $HOME/workplace/personal"
-alias pstudios="cd $HOME/workplace/playstudios"
-
-source <(kubectl completion zsh)
