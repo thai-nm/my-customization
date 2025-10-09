@@ -1,0 +1,52 @@
+#!/bin/bash
+# Auto-generate commit message using OpenRouter
+# Requires: jq, curl
+
+echo "Generating commit message using OpenRouter..."
+
+# Skip if message already exists (e.g. merge, amend)
+if [ -s "$1" ]; then
+  echo "Commit message already exists. Skipping AI commit message."
+  exit 0
+fi
+
+# Read staged diff
+DIFF=$(git diff --staged)
+
+if [ -z "$DIFF" ]; then
+  echo "No staged changes. Skipping AI commit message."
+  exit 0
+fi
+
+
+# Escape the DIFF content for JSON
+ESCAPED_DIFF=$(echo "$DIFF" | jq -Rs .)
+
+# Call OpenRouter API to get commit message
+MSG=$(curl -s https://openrouter.ai/api/v1/chat/completions \
+-H "Authorization: Bearer $OPENROUTER_API_KEY" \
+-H "Content-Type: application/json" \
+-d "{
+  \"model\": \"openai/gpt-4o-mini\",
+  \"messages\": [
+      {
+          \"role\": \"system\",
+          \"content\": \"You are a tool that writes concise, conventional commit messages (e.g., 'fix:', 'feat:', 'chore:'). No explanations.\"
+      },
+      {
+          \"role\": \"user\",
+          \"content\": \"Write a short conventional commit message (maximum 30 words) for the following diff:\\n\" + $ESCAPED_DIFF
+      },
+  ]
+}" | jq -r '.choices[0].message.content' | head -n 1)
+
+echo "Generated message: '$MSG'"
+
+# Fallback if API fails
+if [ -z "$MSG" ] || [ "$MSG" == "null" ]; then
+  echo "Failed to generate commit message. Using fallback."
+  MSG="chore: update"
+fi
+
+# Write commit message
+echo "$MSG" > "$1"
