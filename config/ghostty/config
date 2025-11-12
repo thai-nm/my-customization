@@ -1,0 +1,14 @@
+# Ghostty config
+# https://github.com/ghostty-org/ghostty
+
+# Default PATH on MacOS:
+#   /Users/$USER/Library/Application Support/com.mitchellh.ghostty/config
+
+font-family = SF Mono Regular
+font-size = 11
+
+background-opacity = 1.0
+cursor-style = "block"
+theme = Arcoiris
+# theme = Gruvbox Material Dark
+# theme = Hopscotch.256
