@@ -46,5 +46,13 @@ alias wplace="cd $HOME/workplace"
 alias psn="cd $HOME/workplace/personal"
 alias pstudios="cd $HOME/workplace/playstudios"
 
+export OPENROUTER_API_KEY="API_KEY"
+
+# Claude Code CLI configuration
+export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
+export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
+export ANTHROPIC_API_KEY="" # Important: Must be explicitly empty
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="google/gemini-3-flash-preview"
+
 source <(kubectl completion zsh)
 source $HOME/.zsh/functions.zsh
